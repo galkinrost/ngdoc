@@ -1,17 +1,19 @@
 {
-    "name": "ngdoc",
-    "version": "0.0.1",
-    "dependencies": {
-        "astra": "~1.0.0",
-        "glob": "~4.0.4"
-    },
-    "devDependencies": {
-        "gulp": "~3.8.6",
-        "gulp-jshint": "~1.8.0",
-        "mocha": "~1.21.3",
-        "chai": "~1.9.1"
-    },
-    "scripts": {
-        "test": "mocha test -R list -r chai"
-    }
+  "name": "ngdoc",
+  "version": "0.0.1",
+  "dependencies": {
+    "astra": "~1.0.1",
+    "glob": "~4.0.4",
+    "esprima": "~1.2.2"
+  },
+  "devDependencies": {
+    "gulp": "~3.8.6",
+    "gulp-jshint": "~1.8.0",
+    "mocha": "~1.21.3",
+    "chai": "~1.9.1",
+    "gulp-mocha": "~0.5.2"
+  },
+  "scripts": {
+    "test": "gulp test"
+  }
 }
