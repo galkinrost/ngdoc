@@ -12,13 +12,24 @@ function expect(obj, fixtureFilename) {
 
 describe('Parser', function () {
 
-    it('#moduleParser', function () {
-        var str = fs.readFileSync(__dirname + '/fixture/module.js', 'utf8');
+    describe('module', function () {
+        var ast;
+        beforeEach(function () {
+            var str = fs.readFileSync(__dirname + '/fixture/module.js', 'utf8');
+            ast = esprima.parse(str);
+        });
 
-        var ast = esprima.parse(str);
+        it('#moduleParser', function () {
+            var result = parser.moduleParser(ast);
+            expect(result, 'ast_module.js');
+        });
 
-        var result = parser.moduleParser(ast);
+        it('#moduleFormatter', function () {
+            var moduleAsts = parser.moduleParser(ast);
 
-        expect(result, 'module.js');
+            var result = parser.moduleFormatter(moduleAsts);
+            expect(result, 'data_module.js');
+        });
     });
+
 });
