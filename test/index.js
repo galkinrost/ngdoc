@@ -32,4 +32,24 @@ describe('Parser', function () {
         });
     });
 
+    describe('services',function(){
+        var ast;
+        beforeEach(function () {
+            var str = fs.readFileSync(__dirname + '/fixture/services.js', 'utf8');
+            ast = esprima.parse(str);
+        });
+
+        it('#serviceParser', function () {
+            var result = parser.serviceParser(ast);
+            expect(result, 'ast_service.js');
+        });
+
+        it('#serviceFormatter', function () {
+            var serviceAsts = parser.serviceParser(ast);
+
+            var result = parser.serviceFormatter(serviceAsts);
+            expect(result, 'data_service.js');
+        });
+    });
+
 });
